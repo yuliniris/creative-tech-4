@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>document</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+  <header>
+    <button id="startButton">START!</button>
+    <section id="mainElement"></section>
+    <section id="NASAimage"></section>
+
+  </header>
+
+  <main id="main">
+
+
+  </main>
+
+
+  <script>
+      let startButton = document.getElementById('startButton')
+      let mainElement = document.getElementById("main")
+      let NASAsection = document.getElementById('NASAimage')
+      let poetrySection = document.getElementById('poetrytext')
+      let stockSection = document.getElementById('stockdata')
+
+      let cocktailURL = "http://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+
+      let nasaAPOUurl = "https://api.nasa.gov/planetary/apod"
+      let nasaAPIkey = "votHvqvswCdlFbo9HFYQwqX64XjmIc5x6bhPRkIZ"
+      let nasaDate = "date = 2024-01-21"
+
+      let poetryUrl = "https://poetrydb.org/title/Ozymandias/lines.json"
+      let poetryTitle = "title: Ah, Moon -- and Star!"
+
+      let stockendUrl = " https://api.stockdata.org/v1/data/quote"
+      let stockAPI = "wEjOOeDA9NCxmC6o5Z7FKR4PwchJaesvzX9z3lsM"
+      let stockSymbols = "AAPL"
+
+      
+      let fetchCocktailData = ()=>{
+          console.info("CLICKED!")
+          fetch(cocktailURL)
+            .then((response)=> response.json())
+            .then((payload) => appendCocktailData(payload))
+
+
+      }
+
+      let appendCocktailData = (data) => {
+        let drName = data.drinks[0].strDrink
+        let drImg = data.drinks[0].strDrinkThumb
+
+        let nameHolder = document.createElement('h3')
+        nameHolder.innerText = drName
+        mainElement.appendChild(nameHolder)
+
+        let imageHolder = document.createElement('img')
+        imageHolder.src = drImg
+        mainElement.appendChild(imageHolder)
+
+        let a = new Date(data.drinks[0].dataModified)
+        let dataForNASAAPI = a.getUTCFullYear().toString()+"_" + (a.getUTCMonth()+1).toString()+"_"+a.getUTCDay()
+
+        fetchNASAData(dataForNASAAPI)
+      }
+
+
+    let fetchNASAData = (picDate) => {
+        let nasapicURL = nasaAPOUurl + "?api_key=" + nasaAPIkey +"&date=" + picDate
+        fetch(nasapicURL)
+          .then((payload) => payload.json())
+          .then((json) => appendNASAData(json))
+
+
+
+
+    }
+
+    let appendNASAData = (data) => {
+        console.log(data)
+
+        let picTitle = data.title
+        let imgURL = data.url
+
+        let picHeader = document.createElement('h3')
+        picHeader.innerText = picTitle
+        NASAsection.appendChild(picHeader)
+
+        let nasaImg = document.createElement('img')
+        nasaImg.src = imgURL
+        NASAsection.appendChild(nasaImg)
+
+
+        // let a = new Date(data.drinks[0].dataModified)
+        // let dataForNASAAPI = a.getUTCFullYear().toString()+"_" + (a.getUTCMonth()+1).toString()+"_"+a.getUTCDay()
+
+    }
+
+
+    // let fetchPoetryDB = () => {
+        
+    //     fetch(poetryUrl)
+    //       .then((payload) => payload.json())
+    //       .then((json) => appendPoetryDB(json))
+
+    // }
+
+
+
+    // let appendPoetryDB = (data) => {
+        // let poetryName = data.poetry[0].strpoetry
+        // let poetrytext = data.poetry[0].strpoetryThumb
+
+        // let nameHolder = document.createElement('h3')
+        // nameHolder.innerText = poetryName
+        // poetrySection.appendChild(nameHolder)
+
+        // let textHolder = document.createElement('text')
+        // textHolder.src = poetrytext
+        // poetrySection.appendChild(imageHolder)
+
+        // let a = new Date(data.poetry[0].dataModified)
+        // let dataForstockAPI = a. 
+
+    //     fetchstockData(dataForstockAPI)
+    // }
+
+
+    // let fetchstockData = () => {
+    //     let stockUrl = stockendUrl + "?symbols=" + stockSymbols +"&api_token=" + stockAPI
+    //     fetch(stockUrl)
+    //       .then((payload) => payload.json())
+    //       .then((json) => appendstockData(json))
+
+
+    // }
+
+    // let appendstocklData = (data) => {
+    //     console.log(data)
+
+        // let drName = data.drinks[0].strDrink
+        // let drImg = data.drinks[0].strDrinkThumb
+
+        // let nameHolder = document.createElement('h3')
+        // nameHolder.innerText = drName
+        // stockSection.appendChild(nameHolder)
+
+        // let imageHolder = document.createElement('img')
+        // imageHolder.src = drImg
+        // stockSection.appendChild(imageHolder)
+
+    // }
+
+     
+
+
+      startButton.addEventListener("click", fetchCocktailData)
+
+
+
+//       Sipping wine, reciting verse, gazing at the starry sky,
+// Yet mindful of six pennies passing by
+
+
+  </script>
+</body>
+</html>
