@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project01: WWW as a Rube Goldberg machine</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <h1>Project01: WWW as a Rube Goldberg machine</h1>
+
+            <p>The project tries to express "Sipping wine, reciting verse, gazing at the starry sky,
+            yet mindful of six pennies passing by, broadening horizons"</p>
+
+    <h4>It uses six open API as follows:</h4>
+            <p> <a href="https://www.thecocktaildb.com/api.php">https://www.thecocktaildb.com/api.php</a>.</p> 
+            <p> <a href="https://api.nasa.gov/">https://api.nasa.gov/</a>.</p> 
+            <p> <a href="https://poetrydb.org/index.html">https://poetrydb.org/index.html</a>.</p> 
+            <p><a href="https://www.stockdata.org/">https://www.stockdata.org/</a>.</p> 
+            <p><a href="https://fiscaldata.treasury.gov/">https://fiscaldata.treasury.gov/</a>.</p> 
+            <p><a href="https://www.thenewsapi.com/">https://www.thenewsapi.com/</a>.</p> 
+
+
+
+    <h4>Diagram:</h4>
+    <img src="diagram.png" alt="diagram" width="960" height="540">
+
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/49TZJOrIF6M?si=kU5ggbvDPJ8hP4Tp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+    <h4>Codes:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project01">https://github.com/yuliniris/creative-tech-4/tree/main/project01</a>.</p> 
+    <p>file name: index09</p> 
+
+    <h4>Trigger 1: Clicking the ‘start’ button</h4>
+    <pre>
+        <code>
+            <button id="startButton">START!</button>
+            <section id="mainElement"></section>
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            startButton.addEventListener("click", fetchCocktailData)
+        </code>
+    </pre>
+     
+    <h4>Trigger 2: Getting the date value from cocktail web and adding the random negative integer number to the month, and then passing the new date value to NASA API</h4>
+    <pre>
+        <code>
+            let a = new Date(drink.dateModified)
+            let randomMonthOffset = Math.floor(Math.random() * (-2 - (-6) + 1)) - 6
+            let adjustedMonth = a.getUTCMonth() + 1 + randomMonthOffset
+            let dataForNASAAPI = `${a.getUTCFullYear()}-${adjustedMonth.toString().padStart(2, '0')}-${a.getUTCDate().toString().padStart(2, '0')}`
+        </code>
+    </pre>
+    
+
+    <h4>Trigger 3: After getting image from NASA API, obtaining poetry text from Poetry</h4>
+    <pre>
+        <code>
+            let appendNASAData = (data) => {
+                console.log(data)
+        
+                let picTitle = data.title
+                let imgURL = data.url
+        
+                let picHeader = document.createElement('h3')
+                picHeader.innerText = picTitle
+                NASAsection.appendChild(picHeader)
+        
+                let nasaImg = document.createElement('img')
+                nasaImg.src = imgURL
+                NASAsection.appendChild(nasaImg)
+        
+                fetchPoetryAfterNASA()
+            }
+        </code>
+    </pre>
+    <pre>
+        <code>
+            let fetchPoetryAfterNASA = () => {
+                fetchPoetryDB()
+            }
+        </code>
+    </pre>
+
+    <h4>Trigger 4: Entering the stock symbol button, and clicking ‘search’ button</h4>
+    <pre>
+        <code>
+            <section id="stockdata">
+                <label for="stockInput">Enter Stock Symbol:</label>
+                <input type="text" id="stockInput">
+                <button onclick="searchStock()">search</button>
+            </section>
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            let stockSymbols
+            function searchStock(params) {
+                stockSymbols = document.getElementById('stockInput').value
+                console.log('Stock Symbol:', stockSymbols)
+
+                if (stockSymbols.trim() !== '') {
+                fetchstockData()
+                }
+            }
+        </code>
+    </pre>
+    
+
+    <h4>Trigger 5 & 6: Getting the value from ‘last trade value’ and assigning the value to the parameter ‘recordDate’ to grasp information from fiscal web and News web.</h4>
+    <pre>
+        <code>
+            let recordDate = new Date(lastTradeTime).toISOString().split('T')[0]
+
+            console.log(recordDate)
+            fetchfiscalData(recordDate)
+            fetchtheNews(recordDate)
+        </code>
+    </pre>
+    
+
+    <h4>Problems:</h4>
+            <p>It cannot get data from fiscal API. First, I used the endpoint of ‘average interest rate’, and it showed no data. Then, I checked the website, and it showed the latest data is 12/31/2023, whereas the value of ‘recordData’ is 01/31/2024.</p>
+
+            <p>Therefore, I changed to the endpoint of ‘daily treasury statement: short-term cash investment’, and it updates the data in time. But it response no data, which seems to be inconsistent with the web.</p>
+
+    <img src="project01/prob1.png" alt="prob1"></img>
+    <img src="project01/prob2.png" alt="prob2"></img>
+    <img src="project01/prob3.png" alt="prob3"></img>
+    <img src="project01/prob4.png" alt="prob4"></img>
+    <img src="project01/prob5.png" alt="prob5"></img>
+
+    
+    <h4>Responses to brief:</h4>
+
+            <h5>how can we build similar systems in the digital realm?</h5> 
+            <p>There are several steps to build a digital chain mechanics system.</p>
+            <p>First, think about the digital actions, like sending emails, posting on social media, interacting with APIs, and so on.</p>
+            <p>Second, define the triggers and corresponding actions, and select the programming languages.</p>
+            <p>Third, set up the workflow and test each action.</p>
+            <p>Fourth, test the entire chain system, and do optimization of performance.</p>
+                
+            <h5>What kind of data could be passed around? </h5>
+            <p>Structure and unstructured numerical data, images, texts, and so on. During the projects, I noticed the sentiment analysis API, and I plan to try it later.</p>
+
+            <h5> With services could be chained together to produce some unexpected outcomes?</h5>   
+            <p> If the mechanics of triggers work different from our understanding, the results may be unexpected. also, combining other technologies may results in unexpected outcomes, like natural language processing, cloud computing with Internet of Things platforms.</p>
+
+            <h5>What would the triggers look like - and the end results?</h5>
+            <p>I use four kinds of triggers: click button, date, input box, and get image content.</p>
+            <p>And, I receive four kinds of results: image, text, structure data, and combination of text, image, links.</p>
+
+
+    <script>
+        // Add your JavaScript code here if necessary
+    </script>
+</body>
+</html>
