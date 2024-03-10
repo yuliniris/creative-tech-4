@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Project01: Chatbots with Simple AI</h1>
+
+    <p>For this project, i tried several methods: <br/>
+        <ol>Setting buttons on Discord platform</ol>
+        <ol>Combining cocktail API within chatbot</ol>   
+        <ol>Training Markov text generation model on JupyterLab</ol>  
+        <ol>Using text scripts Game of Thrones to train the model</ol> 
+        <ol>Combinng text generation model in Discord using 'FeedbackModal'</ol>       
+    
+    </p>
+
+    <h4>Markov Process:</h4>
+    <img src="MarkovProcess.png" alt="diagram" width="960" height="540">
+
+    <p>click buttons, get responses and fetch cocktail API</p>
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/zMf5ICNKwYA?si=ZzoJi4EqhSFfMkbR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <h4>Codes:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project02">https://github.com/yuliniris/creative-tech-4/tree/main/project02</a>.</p> 
+    <p>file name: chatbotFetchAPI</p> 
+
+    <p>Training Text Generation Model on JupterLab</p>
+    <h4>Video(Markovify):</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/owzB3UOyLNo?si=cvoESQ1j2bnXpMXy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <h4>Video(Markov Chain):</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/X-t9HLHz-Zg?si=MFPUvldYj1NbwHJq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <h4>Codes:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project02">https://github.com/yuliniris/creative-tech-4/tree/main/project02</a>.</p> 
+    <p>file name: textGeneration, TextGenMarkovify</p> 
+
+    <p>Using text scripts Game of Thrones to train the model</p>
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1MPQ3uiaS68?si=P_Ls-IA2aNiK9y1r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <h4>Codes:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project02">https://github.com/yuliniris/creative-tech-4/tree/main/project02</a>.</p> 
+    <p>file name: text generation(readscripts)</p> 
+
+    <p>Combinng text generation model in Discord</p>
+    
+
+    <h4>Codes:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project02">https://github.com/yuliniris/creative-tech-4/tree/main/project02</a>.</p> 
+    <p>file name: chatbotMarkovTextGen</p> 
+
+    <p>for the dialogue model, when clicking 'submit', it shows error. i have not figured it out.</p> 
+
+    <img src="errorInfo03.png" alt="diagram" width="960" height="540">
+
+    <h4>Responses to brief:</h4>
+
+    <h5>What kind of work will you have your bot do for you</h5> 
+    <p>I set four kinds of tasks for chatbot:<br/>
+        <li>Response by showing bottons</li>
+        <li>Response by sending text message</li>
+        <li>Response by showing dialogue box and calling functions according to answers(parameters)</li>
+        <li>Response by fetching open API</li>
+    </p>
+     
+        
+    <h5>How is your bot triggered? How will people interact with your bot? </h5>
+    <p>My bot triggered by sending text message 'would you like to have a chat?'. <br/>
+       Users can interact with it by two ways:<br/>
+       <li>Clicking bottons: 'Any questions', 'Continue', 'Have a break'</li>
+       <li>When clicking 'Continue', it will show the dialogue box, and users need to enter answers as the parameters to call the Text Generation function. </li>
+
+    </p>
+    
+    <h5>What kind of personality will you give this bot? How will it have conversations with the person interacting with it? </h5>   
+    <p>I use the scripts of Game of Thrones to train the Markov Chain model. i hope it can tell more about this story.<br/>
+        Users need to start the conversation by sending text messages, and anything is okay. Chatbot may pick up the last three letters as the start to generate new vocabulary.<br/>
+        Also, users need to tell chatbot the length of paragraph.<br/>
+        Additionally, the caculation units of three letters can be changed as well. if setting the units length as four, the model will caculate the probility of the fifth character. Since, in the train part, this parameter is set three, right now the unit is three letters.<br/>
+
+
+    </p>
+
+    <h5>What kind of algorithms will you use to give life to your bot?</h5>
+    <p>I use Markov Process to generate text, and i apply two methods.<br/>
+    First one is using the existing library called Markovify. Second one is writing the Markov Process step-by-step. The model caculates the probilities table and then using the probilities table to generate new texts.
+    </p>
+    
+
+</body>
+</html>
