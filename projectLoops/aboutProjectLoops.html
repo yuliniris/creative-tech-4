@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Project: Situated Loops</h1>
+
+    <p>For this project, I did several trials: <br/>
+        <ol>1. Using 'Feedback loop' to generate fractal patterns.</ol>
+        <ol>2. Trying the GLSL.</ol>   
+        <ol>3. Creating 2D terrain, using 'Geometry Instance'.</ol>  
+        <ol>4. Adding feedback loop and audio to iterate texture and motion of the terrain.</ol> 
+         
+    </p>
+
+   
+
+    <h3>Fractal pattern</h3>
+
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/8BC9Bsbr8Mo?si=-UIPa60YrkAMFNvc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/projectLoops">https://github.com/yuliniris/creative-tech-4/tree/main/projectLoops</a>.</p> 
+    <p>File name: fractal.toe</p> 
+
+    <h3>GlSL trial</h3>
+
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ip-v1NU8jHI?si=QLcH-qfMeTHZPDqX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/projectLoops">https://github.com/yuliniris/creative-tech-4/tree/main/projectLoops</a>.</p> 
+    <p>File name: GLSL.toe</p> 
+
+
+    <h3>2D terrain</h3>
+
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/NUCSif2pdXQ?si=hEXL7ZyiVjOM9Xt6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/projectLoops">https://github.com/yuliniris/creative-tech-4/tree/main/projectLoops</a>.</p> 
+    <p>File name: terrain.toe</p> 
+
+
+    <h3>Iterations of feedback loop and audio</h3>
+
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/gTitUX2hXiY?si=kQhk_1dTOoqO3Z_p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/projectLoops">https://github.com/yuliniris/creative-tech-4/tree/main/projectLoops</a>.</p> 
+    <p>File name:loopAudio.toe</p> 
+
+    <h4> Feedback loop module</h4> 
+
+    <img src="feedbackLoop.png" alt="diagram" width="1336" height="377">
+
+
+    <h4>Extracting frequencies data from audio</h4>
+    <img src="freqExtract.png" alt="diagram" width="1533" height="485">
+
+
+    <h3>Responses to brief:</h3>
+
+    <h4>
+        What are the input signals in your installation? How do they transform the system and how are they transformed by it?</h4> 
+    <p>Input signals:<br/>
+        <li>Select background music and introduce it to 'Audio File in' module</li>
+        <li>Select channels, using 'Math' module to extract data </li>
+        <li>Select channels, using 'analysis' modules obtaining frequencies data</li>
+        
+    </p>
+     
+    <p>Transforming:<br/>
+        <li>Using audio data to change the motion of terrains </li>
+        <li>Applying data extracted to 'noise' module, 'transform' y and z axes</li>
+        
+    </p>
+        
+    <h4>Are you providing direct or indirect causal connection between the input and the outcome?</h4>
+
+    <p>It has indirect causal connection between the input and the outcome<br/>
+        
+       <li>It starts from 'grid' module, and gets features from 'instances' module. </li>
+       <li>Then, it infers to 'geometry' module, joining with 'circle' module. </li>
+       <li>After series of transformations, finally using 'transform' module to do adjustments. </li>
+
+    </p>
+    
+    <h4>Does delay play a role in your feedback mechanism?</h4>   
+    <p> I do not apply delay in my feedback loop.<br/>
+         
+        I use edge feedback loop, making 2D terrain more cubic and multi-levelled.<br/>
+    </p>
+
+    
+    
+
+</body>
+</html>
