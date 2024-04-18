@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Project: Fetch open API of stock prices and news and trial on sentiment analysis</h1>
+
+    <p>For this project, I did several trials: <br/>
+        <ol>1. Trying to fetch openAI API from Touchdesigner(failed) .</ol>
+        <ol>2. Trying to fetch stock prices API and correspondingly trigger news API.</ol>   
+        <ol>3. Trying to send news from one email address to another(failed).</ol>  
+        <ol>4. Trying to do sentiment analysis using finbert.</ol> 
+        <ol>5. Trying to do sentiment analysis by fetching Kaggle API and using TensorFlow and transformers(failed to build model).</ol> 
+         
+    </p>
+
+    
+
+   
+
+    <h3>1. Fetch openAI API from Touchdesigner</h3>
+
+    <p>I checked the error information, and the reason may be my python installed within Anaconda Navigator. <br/>
+       Then, I transferred to use python directly.
+    </p>
+
+    <img src="error info.png" alt="diagram" width="866" height="756">
+    <img src="codes.png" alt="diagram" width="1775" height="866">
+
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project04">https://github.com/yuliniris/creative-tech-4/tree/main/project04</a>.</p> 
+    <p>File name: APIpython.toe</p> 
+    
+    <h3>2. Fetch stock price API and corresponding trigger news API.</h3>
+
+    <p>Open API resources: <br/>
+        STOCK_ENDPOINT = "https://www.alphavantage.co/query"<br/>
+        NEWS_ENDPOINT = "https://newsapi.org/v2/everything"<br/>
+        Dates of price data: yesterday and the day before yesterday<br/>
+        Triggers to fetch News API : the price difference percentage is more than 2
+         
+    </p>
+
+    <h4>Video:</h4>
+     
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9mAEMVIDwSE?si=5SQUsgpucf6J_Vul" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+     
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project04">https://github.com/yuliniris/creative-tech-4/tree/main/project04</a>.</p> 
+    <p>File name: stockNews.ipynb</p>
+
+
+    <h3>3. Send news from one email address to another</h3>
+    <p>It failed, and I have not solved it. <br/>
+
+    </p>
+    <img src="send email error info.png" alt="diagram" width="850" height="70">
+
+    
+
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9mAEMVIDwSE?si=5SQUsgpucf6J_Vul" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project04">https://github.com/yuliniris/creative-tech-4/tree/main/project04</a>.</p> 
+    <p>File name: stockNews.ipynb</p> 
+
+     
+
+    
+
+    <h3>4. Sentiment analysis using finbert.</h3>
+    <p>It works. <br/>
+
+    </p>
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/V-7uKgoW6wc?si=-KoajOTdClHYIkWm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project04">https://github.com/yuliniris/creative-tech-4/tree/main/project04</a>.</p> 
+
+    <p>File name:  sentiment analysis.ipynb</p> 
+     
+    <h3>5. Sentiment analysis by fetching Kaggle API and using TensorFlow and transformers</h3>
+    <p>It involves five steps:<br/>
+        1. Get data from Kaggle API.<br/>
+        2. Preprocessing: initialize tokenizer, extract sentiment column, encode.<br/>
+        3. Build the dataset.<br/>
+        4. Shuffle the data and batch it.<br/>
+        5. Build and train the model.<br/>
+
+
+        
+        It failed with the section of building the model. <br/>
+
+    </p>
+    <h4>Video:</h4>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/eQtVF3GDYQU?si=cfebFu1Y7dU4STT1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   
+    
+    <h4>File:</h4>
+    <p> <a href="https://github.com/yuliniris/creative-tech-4/tree/main/project04">https://github.com/yuliniris/creative-tech-4/tree/main/project04</a>.</p> 
+    <p>File name: sentiment analysis.ipynb</p> 
+
+
+    
+
+
+    <h4>Summary:</h4>
+    
+    <p> 1. I did several trials to fetch Kaggle API, since at the beginning I did not have the right pathway of Kaggle.json and the dataset is with competition.<br/>
+        2. It shows the compatible issues with TensorFlow, transformer, Keras. I need to update them or install backwards compatible package. <br/>
+        3. As for the errors of building model, it relates to the output part, and I will check community later. <br/>
+        
+    
+        
+    </p>
+     
+   
+    
+
+</body>
+</html>
