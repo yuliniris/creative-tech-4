@@ -1,0 +1,4 @@
+title: Project04
+description: Fetch open API of stock prices and news and trial on sentiment analysis
+baseurl: "/creative-tech-4/projectFour" # the subpath of your site, e.g., /blog
+url: "https://yuliniris.github.io" # the base hostname & protocol for your site, e.g., http://example.com
